@@ -1,0 +1,53 @@
+<h1>Cập nhập Sản Phẩm</h1>
+<!--<h2><a routerLink="/product/list">Home</a></h2>-->
+<div class="container">
+  <form [formGroup]="productForm" (ngSubmit)="editProduct(id)">
+    <input type="hidden" id="id" name="id" formControlName="id">
+    <div class="mb-3">
+      <label for="name" class="form-label">Tên Sản phẩm</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+      <div *ngIf="nameControl.touched && nameControl.invalid">
+        <p style="color: red" *ngIf="nameControl.errors?.required">
+          Vui lòng nhập tên sản phẩm.
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Giá Sản phẩm</label>
+      <input type="text" class="form-control" id="price" formControlName="price">
+      <div *ngIf="priceControl.touched && priceControl.invalid">
+        <p style="color: red" *ngIf="priceControl.errors?.required">
+          Vui lòng nhập giá.
+        </p>
+        <p style="color: red" *ngIf="priceControl.errors?.pattern">
+          Vui lòng chỉ nhập số.
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Mô tả</label>
+      <input type="text" class="form-control" id="description" formControlName="description">
+      <div *ngIf="descriptionControl.touched && descriptionControl.invalid">
+        <p style="color: red" *ngIf="descriptionControl.errors?.required">
+          Vui lòng nhập mô tả .
+        </p>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="image">Ảnh</label>
+      <br>
+      <img src="http://localhost:8080/image/{{image}}" width="100" alt="" >
+      <input type="file" id="image" (change)="onFileSelected($event)" >
+    </div>
+
+    <div class="mb-3">
+      <label for="category">Thể loại</label>
+      <select  formControlName="category" id="category">
+        <option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>

@@ -1,0 +1,61 @@
+<h1>Điền Thông Tin Sản Phẩm</h1>
+<!--<h2><a routerLink="/product/list">Home</a></h2>-->
+<div class="container">
+  <form [formGroup]="productForm" (ngSubmit)="submit()" enctype="multipart/form-data">
+    <table >
+    <div class="mb-3">
+      <label for="name" class="form-label">Tên sản phẩm</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+      <div *ngIf="nameControl.touched && nameControl.invalid">
+        <p style="color: red" *ngIf="nameControl.errors?.required">
+          Vui lòng nhập tên sản phẩm
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Giá sản phẩm</label>
+      <input type="text" class="form-control" id="price" formControlName="price">
+      <div *ngIf="priceControl.touched && priceControl.invalid">
+        <p style="color: red" *ngIf="priceControl.errors?.required">
+          Vui lòng nhập giá sản phẩm
+        </p>
+        <p style="color: red" *ngIf="priceControl.errors?.pattern">
+          Vui lòng chỉ nhập số.
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Mô tả</label>
+      <input type="text" class="form-control" id="description" formControlName="description">
+      <div *ngIf="descriptionControl.touched && descriptionControl.invalid">
+        <p style="color: red" *ngIf="descriptionControl.errors?.required">
+          Vui lòng nhập mô tả sản phẩm.
+        </p>
+      </div>
+    </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input type="file" class="form-control" id="image" aria-describedby="emailHelp" formControlName="image"
+               (change)="onSelectFile($event)" accept="image/**" multiple>
+      </div>
+      <!--     <div>-->
+      <!--      <label class="image-upload-container btn btn-bwm">-->
+      <!--        <span>Select Image</span>-->
+      <!--        <input #imageInput-->
+      <!--               type="file"-->
+      <!--               accept="image/*"-->
+      <!--               (change)="processFile(imageInput)">-->
+      <!--      </label>-->
+      <!--     </div>-->
+    <div class="mb-3">
+      <label for="category">Thể loại</label>
+      <select  formControlName="category" id="category">
+        <option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Thêm</button>
+    </table>
+  </form>
+</div>
+
+
