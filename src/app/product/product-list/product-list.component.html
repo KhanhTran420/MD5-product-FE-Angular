@@ -1,28 +1,103 @@
-<h1>Danh sách sản phẩm</h1>
-<!--<a routerLink="/product/create">Tạo mới sản phẩm</a>-->
-<button type="button" class="btn btn-danger" routerLink="/product/create">Tạo mới sản phẩm</button>
-<br>
-<br>
-<table class="table table-striped"  style="width: 50%; "  >
-  <tr>
-    <td>STT</td>
-    <td>Tên</td>
-    <td>Giá</td>
-    <td>Mô tả</td>
-    <td>Ảnh</td>
-    <td>Thể loại</td>
-    <td>Sửa</td>
-    <td>Xóa</td>
-<!--    <td colspan="2">Action</td>-->
-  </tr>
-  <tr *ngFor="let product of products; index as i">
-    <td>{{i + 1}}</td>
-    <td>{{product.name}}</td>
-    <td>{{product.price}}</td>
-    <td>{{product.description}}</td>
-    <td><img src="http://localhost:8080/image/{{product.image}}" width="100px" height="100px"></td>
-    <td>{{product.category.name}}</td>
-    <td><a [routerLink]="['/product/edit',product.id]">Edit</a></td>
-    <td><a [routerLink]="['/product/delete',product.id]">Delete</a></td>
-  </tr>
-</table>
+<!--<h1>Danh sách sản phẩm</h1>-->
+<!--&lt;!&ndash;<a routerLink="/product/create">Tạo mới sản phẩm</a>&ndash;&gt;-->
+<!--<button type="button" class="btn btn-danger" routerLink="/product/create">Tạo mới sản phẩm</button>-->
+<!--<br>-->
+<!--<br>-->
+<!--<table class="table table-striped"  style="width: 50%; "  >-->
+<!--  <tr>-->
+<!--    <td>STT</td>-->
+<!--    <td>Tên</td>-->
+<!--    <td>Giá</td>-->
+<!--    <td>Mô tả</td>-->
+<!--    <td>Ảnh</td>-->
+<!--    <td>Thể loại</td>-->
+<!--    <td>Sửa</td>-->
+<!--    <td>Xóa</td>-->
+<!--&lt;!&ndash;    <td colspan="2">Action</td>&ndash;&gt;-->
+<!--  </tr>-->
+<!--  <tr *ngFor="let product of products ; index as i">-->
+<!--    <td>{{i + 1}}</td>-->
+<!--    <td>{{product.name}}</td>-->
+<!--    <td>{{product.price}}</td>-->
+<!--    <td>{{product.description}}</td>-->
+<!--    <td><img src="http://localhost:8080/image/{{product.image}}" width="100px" height="100px"></td>-->
+<!--    <td>{{product.category.name}}</td>-->
+<!--    <td><a [routerLink]="['/product/edit',product.id]">Edit</a></td>-->
+<!--    <td><a [routerLink]="['/product/delete',product.id]">Delete</a></td>-->
+<!--  </tr>-->
+<!--</table>-->
+
+
+
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Product Management</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active">Product Management</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">
+              <a class="btn btn-primary" routerLink="/product/create">Add new</a>
+            </h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="products" class="table table-bordered table-hover">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Category</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let product of products; index as i">
+                <td>{{i+1}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.description}}</td>
+                <td><img src="http://localhost:8080/image/{{product.image}}" width="100px" height="100px"></td>
+                <td>{{product.category.name}}</td>
+                <td><a class="btn btn-warning" [routerLink]="['/product/edit',product.id]">Edit
+                  <span class="fas fa-edit"></span>
+                </a>
+                </td>
+                <td><a class="btn btn-danger" [routerLink]="['/product/delete',product.id]">Delete
+                  <span class="fas fa-trash"></span>
+                </a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
+</section>

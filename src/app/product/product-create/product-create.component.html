@@ -48,8 +48,9 @@
       <!--      </label>-->
       <!--     </div>-->
     <div class="mb-3">
-      <label for="category">Thể loại</label>
+      <label for="category"> Thể loại </label> <br>
       <select  formControlName="category" id="category">
+<!--        <option selected>&#45;&#45;choose&#45;&#45;</option>-->
         <option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>
       </select>
     </div>
@@ -59,3 +60,77 @@
 </div>
 
 
+
+
+
+
+
+
+
+
+
+
+<!--<section class="content-header">-->
+<!--  <div class="container-fluid">-->
+<!--    <div class="row mb-2">-->
+<!--      <div class="col-sm-6">-->
+<!--        <h1>Product Management</h1>-->
+<!--      </div>-->
+<!--      <div class="col-sm-6">-->
+<!--        <ol class="breadcrumb float-sm-right">-->
+<!--          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>-->
+<!--          <li class="breadcrumb-item active">Add New Product</li>-->
+<!--        </ol>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+<!--</section>-->
+
+<!--&lt;!&ndash; Main content &ndash;&gt;-->
+<!--<section class="content">-->
+<!--  <div class="container-fluid">-->
+<!--    <div class="row">-->
+<!--      &lt;!&ndash; left column &ndash;&gt;-->
+<!--      <div class="col-md-12">-->
+<!--        &lt;!&ndash; general form elements &ndash;&gt;-->
+<!--        <div class="card card-primary">-->
+<!--          <div class="card-header">-->
+<!--            <h3 class="card-title">Add New Product</h3>-->
+<!--          </div>-->
+<!--          &lt;!&ndash; /.card-header &ndash;&gt;-->
+<!--          &lt;!&ndash; form start &ndash;&gt;-->
+<!--          <form (ngSubmit)="createProductUsingReactiveForm()" [formGroup]="productForm">-->
+<!--            <div class="card-body">-->
+<!--              <div class="form-group">-->
+<!--                <label for="name">Product name</label>-->
+<!--                <input type="text" class="form-control" id="name"-->
+<!--                       placeholder="Enter product name" formControlName="name">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="price">Product price</label>-->
+<!--                <input type="price" class="form-control" id="price"-->
+<!--                       placeholder="Enter product price" formControlName="price">-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="description">Product description</label>-->
+<!--                <input type="description" class="form-control" id="description"-->
+<!--                       placeholder="Enter product price" formControlName="description">-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; /.card-body &ndash;&gt;-->
+
+<!--            <div class="card-footer">-->
+<!--              <button type="submit" class="btn btn-primary">Submit</button>-->
+<!--            </div>-->
+<!--          </form>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; /.card &ndash;&gt;-->
+<!--      </div>-->
+<!--      &lt;!&ndash;/.col (left) &ndash;&gt;-->
+<!--      &lt;!&ndash; right column &ndash;&gt;-->
+<!--      &lt;!&ndash;/.col (right) &ndash;&gt;-->
+<!--    </div>-->
+<!--    &lt;!&ndash; /.row &ndash;&gt;-->
+<!--  </div>&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+<!--</section>-->
+<!--&lt;!&ndash;Reactive Form&ndash;&gt;-->

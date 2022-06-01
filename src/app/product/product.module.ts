@@ -9,6 +9,7 @@ import {ProductDeleteComponent} from './product-delete/product-delete.component'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     ProductListComponent,
@@ -16,11 +17,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ProductEditComponent,
     ProductDeleteComponent
   ],
-    imports: [
-        CommonModule,
-        ProductRoutingModule,
-        ReactiveFormsModule,
-        FormsModule
-    ]
+  imports: [
+    CommonModule,
+    ProductRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ]
 })
 export class ProductModule { }

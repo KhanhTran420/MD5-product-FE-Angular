@@ -1,15 +1,84 @@
-<h1>Danh sách danh mục sản phẩm</h1>
-<a routerLink="/category/create">Create</a>
-<table border="1">
-  <tr>
-    <td>STT</td>
-    <td>Tên</td>
-    <td colspan="2">Action</td>
-  </tr>
-  <tr *ngFor="let category of categories; index as i">
-    <td>{{i + 1}}</td>
-    <td>{{category.name}}</td>
-    <td><a [routerLink]="['/category/edit', category.id]">Edit</a></td>
-    <td><a [routerLink]="['/category/delete', category.id]">Delete</a></td>
-  </tr>
-</table>
+<!--<h1>Danh sách danh mục sản phẩm</h1>-->
+<!--<a routerLink="/category/create">Create</a>-->
+<!--<table border="1">-->
+<!--  <tr>-->
+<!--    <td>STT</td>-->
+<!--    <td>Tên</td>-->
+<!--    <td colspan="2">Action</td>-->
+<!--  </tr>-->
+<!--  <tr *ngFor="let category of categories; index as i">-->
+<!--    <td>{{i + 1}}</td>-->
+<!--    <td>{{category.name}}</td>-->
+<!--    <td><a [routerLink]="['/category/edit', category.id]">Edit</a></td>-->
+<!--    <td><a [routerLink]="['/category/delete', category.id]">Delete</a></td>-->
+<!--  </tr>-->
+<!--</table>-->
+
+
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Product Management</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active">Category Management</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">
+              <a class="btn btn-primary" routerLink="/category/create">Add new</a>
+            </h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="categories" class="table table-bordered table-hover">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let category of categories; index as i">
+                <td>{{i+1}}</td>
+                <td>{{category.name}}</td>
+
+
+
+                <td><a class="btn btn-warning" [routerLink]="['/category/edit', category.id]">Edit
+                  <span class="fas fa-edit"></span>
+                </a>
+                </td>
+                <td><a class="btn btn-danger" [routerLink]="['/category/delete', category.id]">Delete
+                  <span class="fas fa-trash"></span>
+                </a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
+</section>

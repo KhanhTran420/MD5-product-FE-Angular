@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent implements OnInit {
-  selectedFile = null;
+  selectedFile = new File(['none'], 'filename.jpg');
   productForm: FormGroup = new FormGroup({
     id: new FormControl(),
     name: new FormControl(),
@@ -23,7 +23,7 @@ export class ProductEditComponent implements OnInit {
   });
   id: number;
   categories: Category[] = [];
-  image = null;
+   image = null;
   constructor(private productService: ProductService,
               private categoryService: CategoryService,
               private router: Router,
@@ -83,7 +83,7 @@ export class ProductEditComponent implements OnInit {
   // }
   private getProductById(id: number) {
     return this.productService.findById(id).subscribe((product) => {
-      // this.image = product.image;
+      this.image = product.image;
       this.productForm = new FormGroup({
         id: new FormControl(product.id),
         name: new FormControl(product.name),
